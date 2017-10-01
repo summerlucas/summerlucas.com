@@ -1,0 +1,52 @@
+@mixin linearGradient($top, $bottom){
+    background: $top; /* Old browsers */
+    background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin color($clr) {
+  background-color: clr;
+}
+
+.background {
+  @include linearGradient(#93cede, #49a5bf)
+  @include size(100%, 100%)
+}           
+
+@mixin centre() {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin transparent() {
+
+}
+
+#say {
+  @include centre();
+}
+
+#say input[type="input"] {
+  @include size(100%, 100%)
+  background-color: black;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 8.5em;
+  padding: 0.5em;
+  color: white;
+  outline: none;
+  border-radius: 0.1em;
+}
+      
